@@ -1,0 +1,53 @@
+<idea-plugin>
+  <id>com.demoplugin</id>
+  <name>Demo</name>
+  <version>1.0</version>
+  <vendor email="support@democompany.com" url="http://www.democompany.com">Demo</vendor>
+
+  <description><![CDATA[
+      here is the short descriptiodsdn for demo plugin here.<br>
+      <em>most common tags may be used</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      This is change note<br>
+      <em>most common tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <applicationService serviceInterface="com.main.Application_Service"
+                        serviceImplementation="com.main.impl.Application_ServiceImpl"/>
+    <projectService serviceInterface="com.main.Project_Service"
+                    serviceImplementation="com.main.impl.Project_ServiceImpl"/>
+    <moduleService serviceInterface="com.main.Module_Service"
+                   serviceImplementation="com.main.impl.Module_ServiceImpl"/>
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="PluginAction" class="com.main.Actions.PluginAction" text="Plugin Action"
+            description="this is an Plugin Action for Demo Plugin">
+      <add-to-group group-id="ToolsMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl SLASH"/>
+    </action>
+    <action id="Generate_Group_Action" class="com.main.Actions.Generate_Group_Action" text="Generate Group Action"
+            description="Generate Group Action For Demo Plugin ">
+      <add-to-group group-id="GenerateGroup" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl SPACE"/>
+    </action>
+  </actions>
+
+</idea-plugin>
